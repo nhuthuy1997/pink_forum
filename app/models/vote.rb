@@ -1,5 +1,5 @@
 class Vote < ApplicationRecord
-  enum type_of_vote: { down_vote: -1, none: 0, up_vote: 1 }
+  enum status: { down_vote: -1, none: 0, up_vote: 1 }, _suffix: true
 
   belongs_to :user
   belongs_to :ownerable, polymorphic: true

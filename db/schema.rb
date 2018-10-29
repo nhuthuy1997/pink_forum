@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_074512) do
+ActiveRecord::Schema.define(version: 2018_10_29_155545) do
 
   create_table "banning_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_074512) do
   end
 
   create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "type_of_vote", null: false
+    t.integer "status", null: false
     t.bigint "user_id"
     t.integer "ownerable_id"
     t.string "ownerable_type"
