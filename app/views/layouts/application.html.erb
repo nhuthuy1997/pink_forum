@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RorCourse1</title>
+    <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+
+    <script>
+      I18n.locale = '<%= I18n.locale %>';
+    </script>
   </head>
 
   <body>
+    <div class="flash-errors">
+      <%= render "shareds/flash_errors" %>
+    </div>
+    <%= render"layouts/header" %>
     <%= yield %>
+    <%= render"layouts/footer" %>
   </body>
 </html>

@@ -9,7 +9,7 @@ default: &default
   encoding: utf8
   database: pink_forum
   username: root
-  password: akonakon
+  password: root
   host: localhost
   port: 3306
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

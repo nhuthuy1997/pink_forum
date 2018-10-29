@@ -1,0 +1,66 @@
+@import 'colors';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $white1;
+  font-family: Arial;
+  padding: 20px;
+}
+
+.header {
+  background: $white;
+  font-size: 40px;
+  padding: 30px;
+  text-align: center;
+}
+
+.leftcolumn {
+  float: left;
+  width: 75%;
+}
+
+.rightcolumn {
+  float: left;
+  padding-left: 20px;
+  width: 25%;
+}
+
+.fakeimg {
+  background-color: $gray1;
+  padding: 20px;
+  width: 100%;
+}
+
+.card {
+  background-color: $white;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.row::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.footer {
+  background: $white2;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .leftcolumn,
+    .rightcolumn {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.forum_title {
+  color: $pink;
+}

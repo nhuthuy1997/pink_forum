@@ -1,7 +1,68 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+User.create!(
+  name: "admin",
+  email: "admin@gmail.com",
+  password: "123456",
+  birthday: "1/1/1997",
+  sex: 1,
+  role: 1
+)
+
+10.times do |n|
+  User.create!(
+    name: Faker::Name.name,
+    email: Faker::Name.unique.first_name + "@gmail.com",
+    password: "123456",
+    birthday: "1/1/1997",
+    sex: 1,
+    role: 3
+  )
+end
+
+10.times do |n|
+  @category = Category.create!(
+    title: Faker::SiliconValley.unique.company
+  )
+  
+  @user = User.create!(
+    name: Faker::Name.name,
+    email: Faker::Name.unique.first_name + "@gmail.com",
+    password: "123456",
+    birthday: "1/1/1997",
+    sex: 1,
+    role: 2
+  )
+
+  CategoryManagement.create!(
+    moderator_id: @user.id,
+    category_id: @category.id
+  )
+
+  5.times do |m|
+    @topic = @category.topics.create!(
+      title: Faker::SiliconValley.invention,
+      user_id: rand(1..10),
+      content: Faker::Lorem.paragraphs[0],
+      status: rand(1..3)
+    )
+    count_user = User.count
+    @topic.votes.create!(
+      user_id: rand(1..count_user),
+      type_of_vote: rand(-1..1)
+    )
+
+    3.times do |j|
+      @post = @topic.posts.create!(
+        title: Faker::Lorem.unique.sentence,
+        content: Faker::Lorem.paragraphs[0],
+        status: rand(1..2)
+      )
+      
+      @post.votes.create!(
+        user_id: rand(1..count_user),
+        type_of_vote: rand(-1..1)
+      )
+    end
+  end
+end

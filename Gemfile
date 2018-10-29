@@ -5,12 +5,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "rails", "~> 5.2.0"
 # Use sqlite3 as the database for Active Record
 gem "mysql2"
-gem "sass-rails"
+gem 'sass-rails'
 gem "coffee-rails"
 gem "turbolinks"
 gem "bcrypt"
 gem "devise"
-gem "faker"
+gem 'faker', :git => 'https://github.com/stympy/faker.git'
 gem "bootstrap-sass"
 gem "jquery-rails"
 gem "bootstrap-datepicker-rails"
@@ -33,8 +33,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rswag"
   gem "pry"
-  gem "scss_lint"
-  gem "scss_lint_reporter_checkstyle"
+  gem 'scss-lint'
   gem "rubocop"
   gem "eslint-rails"
   gem "rails_best_practices"
