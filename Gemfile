@@ -5,13 +5,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "rails", "~> 5.2.0"
 # Use sqlite3 as the database for Active Record
 gem "mysql2"
-gem "sass-rails"
+gem "sass-rails", '>= 3.2'
 gem "coffee-rails"
 gem "turbolinks"
 gem "bcrypt"
 gem "devise"
 gem "faker"
-gem "bootstrap-sass"
+gem "bootstrap-sass", '~> 3.3.7'
 gem "jquery-rails"
 gem "bootstrap-datepicker-rails"
 gem "i18n-js"
@@ -25,6 +25,8 @@ gem "chartjs-rails"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "puma"
 gem "activerecord-import", require: false
+gem "animate-rails"
+gem "select2-rails"
 
 group :development, :test do
   gem "byebug"
