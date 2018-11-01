@@ -1,0 +1,31 @@
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100 p-t-85 p-b-20">
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name),
+				class: "login100-form validate-form") do |f| %>
+				<span class="login100-form-title p-b-70">
+					Welcome to Forum!
+				</span>
+				<span class="login100-form-avatar">
+					<%= image_tag("avatar-01.jpg", alt: "AVATAR") %>
+				</span>
+
+				<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+					<%= f.email_field :email, autocomplete: "email", class: "input100" %>
+					<span class="focus-input100" data-placeholder="Username"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+					<%= f.password_field :password, autocomplete: "new-password", class: "input100" %>
+					<span class="focus-input100" data-placeholder="Password"></span>
+				</div>
+
+				<div class="container-login100-form-btn">
+					<%= f.submit "Log in", class: "login100-form-btn" %>
+				</div>
+
+				<%= render "devise/shared/links" %>
+			<% end %>
+		</div>
+	</div>
+</div>
