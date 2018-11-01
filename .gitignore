@@ -23,3 +23,22 @@
 .byebug_history
 /config/database.yml
 /config/secrets.yml
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+/node_modules
+/yarn-error.log
+
+/public/assets
+.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore application configuration
+/config/application.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

@@ -1,0 +1,13 @@
+<% posts.each do |post| %>
+  <article>
+      <h2 class="article-title"><%= post.title %></h2>
+      <!-- TODO -->
+      <p class="article-meta">Posted on <time datetime="2017-05-14"><%= post.created_at %></time> by <a href="#" rel="author"><!-- Athor --></a></p>
+
+      <p><%= post.content %></p>
+
+      <a href="#" class="btn btn-primary">Read more</a>
+      <a href="#" class="btn btn-secondary">Comments</a>
+
+  </article>
+<% end %>
