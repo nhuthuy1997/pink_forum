@@ -5,21 +5,26 @@ class Post < ApplicationRecord
 
   has_many :votes, as: :ownerable, dependent: :destroy
 
-  scope :pushlished, ->{ where status: :pushlish }
-  scope :most_upvote, ->(page){ pushlished.joins(:votes).select("posts.*, SUM(votes.status) AS total_vote").group(:id).order("total_vote DESC").limit(page) }
-  scope :newest, ->(page){ pushlished.order(created_at: :desc).limit(page) }
+  scope :pushlished, ->{ joins(:votes).where(status: :pushlish).includes(:topic, topic: [:user, :category]) }
+  scope :cal_vote, ->{ pushlished.select("posts.*, SUM(votes.status) AS total_vote").group(:id) }
+  scope :newest, ->{ cal_vote.order(created_at: :desc) }
+
+  delegate :category, to: :topic
+  delegate :user, to: :topic
 
   class<<self
-    def _on context, page
+    def _on context
       case context
       when nil
-        newest page
+        newest
       when "newest"
-        newest page
-      when "post-most-upvote"
-        most_upvote page
+        newest
+      when "most_upvote"
+        cal_vote.order("total_vote DESC")
+      when "on_largest_category"
+        Category.largest_category.posts.cal_vote
       else
-
+        newest
       end
     end
   end

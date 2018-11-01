@@ -1,8 +1,21 @@
 <% posts.each do |post| %>
   <article>
       <h2 class="article-title"><%= post.title %></h2>
-      <!-- TODO -->
-      <p class="article-meta">Posted on <time datetime="2017-05-14"><%= post.created_at %></time> by <a href="#" rel="author"><!-- Athor --></a></p>
+      <p class="article-meta">
+        <%= link_to post.category.title, category_path(id: post.category.id), rel: "category" %>
+        <a> | </a>
+        
+        <a href="#" rel="topic"><%= post.topic.title %></a>
+        <a> | </a>
+        <a><%= post.total_vote %> upvote</a>
+        </p>
+      <p class="article-meta">Posted on <time datetime="2017-05-14"><%= post.created_at %></time> by <a href="#" rel="author">
+        <% if  post.user.id == current_user.id %>
+          <%= post.user.name %>
+        <% else %>
+          you
+        <% end %>
+      </a></p>
 
       <p><%= post.content %></p>
 

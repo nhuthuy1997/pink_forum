@@ -15,3 +15,4 @@
 //= require select2
 //= require activestorage
 //= require_tree .
+//= require toastr

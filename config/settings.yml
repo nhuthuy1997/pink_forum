@@ -1,2 +1,5 @@
-post:
+article:
   per_page: 6
+
+page:
+  default: "1"

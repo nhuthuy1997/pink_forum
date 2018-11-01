@@ -1,0 +1,10 @@
+<main class="container">
+	<div class="row">
+		<%= render "categories/side_bar", categories: @categories %>
+		<div class="col-md-6">
+			<%= render "post_form", posts: @posts %>
+      <%= paginate @posts, theme: "twitter-bootstrap-3" %>
+		</div>
+		<%= render "shareds/right_side_bar" %>
+	</div>
+</main>

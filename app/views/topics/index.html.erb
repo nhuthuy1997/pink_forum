@@ -1,13 +1,10 @@
-<!-- Main content area -->
 <main class="container">
     <div class="row">
         <%= render "categories/side_bar", categories: @categories %>
-        <!-- Main content -->
         <div class="col-md-6">
             <% @topics_on_category.each do |topic| %>
               <article>
                   <h2 class="article-title"><%= topic.title %></h2>
-                  <!-- TODO -->
                   <p class="article-meta">Posted on <time datetime="2017-05-14"><%= post.created_at %></time> by <a href="#" rel="author"><!-- Athor --></a></p>
 
                   <p><%= topic.content %></p>

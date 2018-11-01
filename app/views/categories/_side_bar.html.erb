@@ -3,7 +3,7 @@
   <div class="sidebar-box">
       <div class="list-group list-group-root">
           <% categories.each do |category| %>
-            <a class="category list-group-item" href="#" ><%= category.title %></a>
+            <%= link_to category.title, category_path(id: category.id), class: "category list-group-item" %>
           <% end %>
       </div>
   </div>

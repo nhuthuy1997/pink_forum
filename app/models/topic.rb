@@ -7,5 +7,5 @@ class Topic < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :votes, as: :ownerable, dependent: :destroy
 
-  scope :most_upvote, ->(page){ pushlished.joins(:votes).select("topic.*, SUM(votes.status) AS total_vote").group(:id).order("total_vote DESC").limit(page) }
+  scope :most_upvote, -> { joins(:votes).select("topics.*, SUM(votes.status) AS total_vote_topic").group(:id).order("total_vote_topic DESC") }
 end

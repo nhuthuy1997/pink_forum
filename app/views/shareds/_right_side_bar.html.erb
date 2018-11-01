@@ -1,15 +1,15 @@
 <!-- Right Sidebar -->
 <aside class="col-md-3">
-    <div class="sidebar-box">
-        <div class="list-group list-group-root">
-            <a class="list-group-item" href="#">Các bài viết mới nhất</a>
-            <a class="list-group-item" href="#">Các chuyên mục nổi bật</a>
-            <a class="list-group-item" href="#">Các topic nổi bật</a>
-            <a class="list-group-item" href="#">Các bài viết nổi bật</a>
-        </div>
+  <div class="sidebar-box">
+    <div class="list-group list-group-root">
+      <%= link_to "Các bài viết mới nhất", posts_index_path(context: "newest"), class:"list-group-item" %>
+      <%= link_to "Các chuyên mục nổi bật", posts_index_path(context: "on_largest_category"), class:"list-group-item" %>
+      <%= link_to "Các topic nổi bật", posts_index_path(context: "on_topic_most_upvote"), class:"list-group-item" %>
+      <%= link_to "Các bài viết nổi bật", posts_index_path(context: "most_upvote"), class:"list-group-item" %>
     </div>
+  </div>
 
-    <div class="sidebar-box sidebar-box-bg">
-        <h5 class="block-inline">Số người dùng online: </h5><span> 100</span>
-    </div>
+  <div class="sidebar-box sidebar-box-bg">
+    <h5 class="block-inline">Số người dùng online: </h5><span> 100</span>
+  </div>
 </aside>
